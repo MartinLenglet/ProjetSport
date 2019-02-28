@@ -42,18 +42,13 @@ public class ProjetSportApplication implements CommandLineRunner{
 		
 		// Initialisation de la base de données "projetsport"
 		
-		User martin = new User("Martin", "Lenglet", "TinMar du 62", "martin.lenglet@hotmail.fr", "martin");
+		/*User martin = new User("Martin", "Lenglet", "TinMar du 62", "martin.lenglet@hotmail.fr", "martin");
 		User pierre = new User("Pierre", "Falck", "Pedro", "pierre.falck@hotmail.fr", "pierre");
 		User hugo = new User("Hugo", "Carlevaris", "Hugoleboss", "hugo.carlevaris@hotmail.fr", "hugo");
 		
 		Sport tennis = new Sport("Tennis", 2, 4);
 		Sport foot = new Sport("Football", 5, 22);
 		Sport volley = new Sport("VolleyBall", 6, 8);
-		
-		/*String sDate1="31/12/1998";  
-	    Date date1 = new SimpleDateFormat("dd/MM/yyyy").parse(sDate1); 
-	    long ms = date1.getTime();
-	    Time t = new Time(ms);*/
 	    
 		userRepos.save(martin);
 		userRepos.save(pierre);
@@ -82,7 +77,7 @@ public class ProjetSportApplication implements CommandLineRunner{
 		Evenement event4 = new Evenement("Football", "Quelqu'un a des chaussures ?", "23/03/15", "17:30");
 		event4.setCreateur(hugo);
 		event4.setSport(foot);	
-		eventRepos.save(event4);
+		eventRepos.save(event4);*/
 		
 		
 		userRepos.findAll().forEach(a -> {
