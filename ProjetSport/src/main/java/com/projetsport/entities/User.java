@@ -17,7 +17,7 @@ public class User implements Serializable{
 	private String mail;
 	private String mdp;
 	
-	User(){
+	public User(){
 		
 	}
 
