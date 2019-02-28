@@ -1,5 +1,6 @@
 package com.projetsport.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,4 +48,17 @@ public class EvenementRestService {
 		return eventRepos.save(event);
 	}
 
+	@RequestMapping(value="/meseventcree/{id}", method=RequestMethod.GET)
+	public List<Evenement> getMesEventCreeById(@PathVariable Long id){
+		List<Evenement> allEvent = eventRepos.findAll();
+		List<Evenement> mesEvents = new ArrayList<Evenement>();
+		
+		for (Evenement evenement : allEvent) {
+			if(evenement.getCreateur().getId()==id) {
+				mesEvents.add(evenement);
+			}
+		}
+		return mesEvents;
+	}
+	
 }

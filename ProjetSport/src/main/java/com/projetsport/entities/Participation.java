@@ -54,7 +54,7 @@ public class Participation implements Serializable{
 	}
 
 	public String infoParticipation() {
-		return "Participation [id=" + id + ", event=" + event + ", participant=" + participant + "]";
+		return "Participation [id=" + id + ", event=" + event.getTitre() + ", participant=" + participant.getNom() + "]";
 	}
 
 }
