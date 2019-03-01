@@ -52,7 +52,7 @@ public class ProjetSportApplication implements CommandLineRunner{
 		// avant de tout mettre en commentaire jusqu'à la ligne **************
 		
 		User martin = new User("Martin", "Lenglet", "TinMar du 62", "martin.lenglet@hotmail.fr", "martin");
-		User pierre = new User("Pierre", "Falck", "Pedro", "pierre.falck@hotmail.fr", "pierre");
+		User pierre = new User("Pierre", "Falck", "PedroElFalko", "pierre.falck@hotmail.fr", "pierre");
 		User hugo = new User("Hugo", "Carlevaris", "Hugoleboss", "hugo.carlevaris@hotmail.fr", "hugo");
 		
 		Sport tennis = new Sport("Tennis", 2, 4);
