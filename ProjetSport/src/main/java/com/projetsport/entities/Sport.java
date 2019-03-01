@@ -14,16 +14,17 @@ public class Sport implements Serializable{
 	private String nom;
 	private int nbrMin;
 	private int nbrMax;
+	private String lien;
 	
 	public Sport(){
-		
 	}
 
-	public Sport(String nom, int nbrMin, int nbrMax) {
+	public Sport(String nom, int nbrMin, int nbrMax, String lien) {
 		super();
 		this.nom = nom;
 		this.nbrMin = nbrMin;
 		this.nbrMax = nbrMax;
+		this.lien = lien;
 	}
 
 	public Long getId() {
@@ -36,6 +37,14 @@ public class Sport implements Serializable{
 
 	public String getNom() {
 		return nom;
+	}
+
+	public String getLien() {
+		return lien;
+	}
+
+	public void setLien(String lien) {
+		this.lien = lien;
 	}
 
 	public void setNom(String nom) {

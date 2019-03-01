@@ -45,7 +45,7 @@ public class ProjetSportApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		// Initialisation de la base de données "projetsport"
+		// Initialisation de la base de données "projetsport" 
 		
 		// IMPORTANT :
 		// Pour que tout se passe bien, supprimer toutes les tables de votre base de données et initialiser une seule fois 
@@ -55,9 +55,9 @@ public class ProjetSportApplication implements CommandLineRunner{
 		User pierre = new User("Pierre", "Falck", "PedroElFalko", "pierre.falck@hotmail.fr", "pierre");
 		User hugo = new User("Hugo", "Carlevaris", "Hugoleboss", "hugo.carlevaris@hotmail.fr", "hugo");
 		
-		Sport tennis = new Sport("Tennis", 2, 4);
-		Sport foot = new Sport("Football", 5, 22);
-		Sport volley = new Sport("VolleyBall", 6, 8);
+		Sport tennis = new Sport("Tennis", 2, 4, "../assets/tennis-event.jpg");
+		Sport foot = new Sport("Football", 5, 22, "../assets/foot-event.jpg");
+		Sport volley = new Sport("VolleyBall", 6, 8, "../assets/volley-event.jpg");
 	    
 		userRepos.save(martin);
 		userRepos.save(pierre);
@@ -88,7 +88,7 @@ public class ProjetSportApplication implements CommandLineRunner{
 		event4.setSport(foot);	
 		eventRepos.save(event4);
 		
-		// Si erreur à ce niveau, voir compment utiliser le ManyToMany 
+		// Si erreur à ce niveau, voir compment utiliser le ManyToMany  
 		Participation part1 = new Participation();
 		part1.setEvent(event1);
 		part1.setParticipant(martin);
