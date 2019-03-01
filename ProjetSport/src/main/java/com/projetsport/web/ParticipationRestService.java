@@ -76,5 +76,17 @@ public class ParticipationRestService {
 		}
 		return allMyEvent;
 	}
+	
+	@RequestMapping(value="/participation/event/{id}", method=RequestMethod.GET)
+	public Integer nbrParticipants(@PathVariable Long id) {
+		Integer compteur = 0;
+		List<Participation> allParticipation = participationRepos.findAll();
+		for (Participation participation : allParticipation) {
+			if (participation.getEvent().getId()==id) {
+				compteur += 1;
+			}
+		}
+		return compteur;
+	}
 
 }

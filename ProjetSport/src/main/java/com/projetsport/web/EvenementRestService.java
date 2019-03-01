@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projetsport.dao.EvenementRepository;
+import com.projetsport.dao.ParticipationRepository;
 import com.projetsport.entities.Evenement;
+import com.projetsport.entities.Participation;
 
 @RestController
 @CrossOrigin("*")
@@ -20,6 +22,9 @@ public class EvenementRestService {
 	
 	@Autowired
 	private EvenementRepository eventRepos;
+	
+	@Autowired
+	private ParticipationRepository participationRepos;
 	
 	@RequestMapping(value="/event", method=RequestMethod.GET)
 	public List<Evenement> getEvent(){
@@ -59,6 +64,24 @@ public class EvenementRestService {
 			}
 		}
 		return mesEvents;
+	}
+	 
+	@RequestMapping(value="/event/nbrparticipants", method=RequestMethod.GET)
+	public List<Integer> compteurParticipants(){
+		List<Integer> listeCompteur = new ArrayList<Integer>();
+		List<Evenement> allEvent = eventRepos.findAll();
+		List<Participation> allParticipation = participationRepos.findAll();
+		Integer compteur = 0;
+		for (Evenement evenement : allEvent) {
+			compteur = 0;
+			for (Participation participation : allParticipation) {
+				if (participation.getEvent().getId()==evenement.getId()) {
+					compteur += 1;
+				}
+			}
+			listeCompteur.add(compteur);
+		}
+		return listeCompteur;
 	}
 	
 }
