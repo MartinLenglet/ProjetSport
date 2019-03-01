@@ -51,7 +51,7 @@ public class ProjetSportApplication implements CommandLineRunner{
 		// Pour que tout se passe bien, supprimer toutes les tables de votre base de données et initialiser une seule fois 
 		// avant de tout mettre en commentaire jusqu'à la ligne **************
 		
-		User martin = new User("Martin dqsdqsd", "Lenglet", "TinMar du 62", "martin.lenglet@hotmail.fr", "martin");
+		User martin = new User("Martin", "Lenglet", "TinMar du 62", "martin.lenglet@hotmail.fr", "martin");
 		User pierre = new User("Pierre", "Falck", "Pedro", "pierre.falck@hotmail.fr", "pierre");
 		User hugo = new User("Hugo", "Carlevaris", "Hugoleboss", "hugo.carlevaris@hotmail.fr", "hugo");
 		
