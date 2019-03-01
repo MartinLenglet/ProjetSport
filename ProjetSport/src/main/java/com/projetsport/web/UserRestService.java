@@ -46,5 +46,17 @@ public class UserRestService {
 		user.setId(id);
 		return userRepos.save(user);
 	}
+	
+	@RequestMapping(value="/userconnexion", method=RequestMethod.POST)
+	public User connexionOk(@RequestBody User user) {
+		List<User> allUser = userRepos.findAll();
+		User userConnect = new User();
+		for (User user2 : allUser) {
+			if(user.getPseudo().equals(user2.getPseudo())&&(user.getMdp().equals(user2.getMdp()))){
+				userConnect = user2;
+			}
+		}
+		return userConnect;
+	}
 
 }
