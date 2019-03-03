@@ -70,48 +70,57 @@ public class ProjetSportApplication implements CommandLineRunner{
 		
 		Evenement event1 = new Evenement("Tennis Simple niveau débutant", "Petit tennis tranquillou après le taf", "19/03/15", "17:30");
 		event1.setCreateur(pierre);
-		event1.setSport(tennis);	
+		event1.setSport(tennis);
+		event1.setNbrParticipants(2);
 		eventRepos.save(event1);
 		
 		Evenement event2 = new Evenement("Tennis Double expert", "Seulement pour les pros", "25/03/15", "18:30");
 		event2.setCreateur(hugo);
-		event2.setSport(tennis);	
+		event2.setSport(tennis);
+		event2.setNbrParticipants(1);
 		eventRepos.save(event2);
 		
 		Evenement event3 = new Evenement("Volley entre amis", "Vous savez où trouver un terrain ?", "22/03/15", "20:00");
 		event3.setCreateur(martin);
-		event3.setSport(volley);	
+		event3.setSport(volley);
+		event3.setNbrParticipants(1);
 		eventRepos.save(event3);
 		
 		Evenement event4 = new Evenement("Football", "Quelqu'un a des chaussures ?", "23/03/15", "17:30");
 		event4.setCreateur(hugo);
 		event4.setSport(foot);	
+		event4.setNbrParticipants(1);
 		eventRepos.save(event4);
 		
 		// Si erreur à ce niveau, voir compment utiliser le ManyToMany  
 		Participation part1 = new Participation();
 		part1.setEvent(event1);
 		part1.setParticipant(martin);
+		event1.ajouterparticipant();
 		participationRepos.save(part1);
 		
 		Participation part2 = new Participation();
 		part2.setEvent(event1);
 		part2.setParticipant(pierre);
+		event1.ajouterparticipant();
 		participationRepos.save(part2);
 		
 		Participation part3 = new Participation();
 		part3.setEvent(event2);
 		part3.setParticipant(hugo);
+		event2.ajouterparticipant();
 		participationRepos.save(part3);
 		
 		Participation part4 = new Participation();
 		part4.setEvent(event3);
 		part4.setParticipant(martin);
+		event3.ajouterparticipant();
 		participationRepos.save(part4);
 		
 		Participation part5 = new Participation();
 		part5.setEvent(event4);
 		part5.setParticipant(hugo);
+		event4.ajouterparticipant();
 		participationRepos.save(part5);
 		
 		
