@@ -77,10 +77,10 @@ CREATE TABLE IF NOT EXISTS `participation` (
 
 INSERT INTO `participation` (`id`, `event_id`, `participant_id`) VALUES
 (1, 1, 1),
-(2, 1, 2),
-(3, 2, 3),
-(4, 3, 1),
-(5, 4, 3);
+(2, 2, 1),
+(3, 2, 2),
+(4, 3, 3),
+(5, 4, 2);
 
 --
 -- Déclencheurs `participation`

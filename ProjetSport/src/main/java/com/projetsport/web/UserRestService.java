@@ -1,5 +1,6 @@
 package com.projetsport.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.projetsport.dao.ParticipationRepository;
 import com.projetsport.dao.UserRepository;
+import com.projetsport.entities.Participation;
 import com.projetsport.entities.User;
 
 @RestController
@@ -19,6 +22,8 @@ public class UserRestService {
 	
 	@Autowired
 	private UserRepository userRepos;
+	@Autowired
+	private ParticipationRepository participationRepos;
 	
 	@RequestMapping(value="/user", method=RequestMethod.GET)
 	public List<User> getUser(){
@@ -57,6 +62,19 @@ public class UserRestService {
 			}
 		}
 		return userConnect;
+	}
+	
+	@RequestMapping(value="/listeparticipantsevent/{id}", method=RequestMethod.GET)
+	public List<User> participantsEvent(@PathVariable Long id) {
+		List<User> participantsEvent = new ArrayList<User>();
+		List<Participation> allParticipation = participationRepos.findAll();
+		for (Participation participation : allParticipation) {
+			if(participation.getEvent().getId()==id) {
+				Long idParticipant = participation.getParticipant().getId();
+				participantsEvent.add(userRepos.findOne(idParticipant));
+			}
+		}
+		return participantsEvent;
 	}
 
 }
