@@ -50,7 +50,7 @@ public class ProjetSportApplication implements CommandLineRunner{
 		// IMPORTANT :
 		// Pour que tout se passe bien, supprimer toutes les tables de votre base de données et initialiser une seule fois 
 		// avant de tout mettre en commentaire jusqu'à la ligne **************
-		
+		/*
 		User martin = new User("Martin", "Lenglet", "TinMar du 62", "martin.lenglet@hotmail.fr", "martin");
 		User pierre = new User("Pierre", "Falck", "PedroElFalko", "pierre.falck@hotmail.fr", "pierre");
 		User hugo = new User("Hugo", "Carlevaris", "Hugoleboss", "hugo.carlevaris@hotmail.fr", "hugo");
@@ -123,7 +123,7 @@ public class ProjetSportApplication implements CommandLineRunner{
 		event4.ajouterparticipant();
 		participationRepos.save(part5);
 		
-		
+		*/
 		
 		// **************** Fin de l'initialisation ******************************
 		
