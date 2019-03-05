@@ -50,8 +50,8 @@ CREATE TABLE IF NOT EXISTS `evenement` (
 --
 
 INSERT INTO `evenement` (`id`, `date_event`, `description`, `horaire`, `nbr_participants`, `titre`, `createur_id`, `sport_id`) VALUES
-(1, '19/03/15', 'Petit tennis tranquillou après le taf', '17:30', 2, 'Tennis Simple niveau débutant', 2, 1),
-(2, '25/03/15', 'Seulement pour les pros', '18:30', 1, 'Tennis Double expert', 3, 1),
+(1, '19/03/15', 'Petit tennis tranquillou après le taf', '17:30', 1, 'Tennis Simple niveau débutant', 2, 1),
+(2, '25/03/15', 'Seulement pour les pros', '18:30', 2, 'Tennis Double expert', 3, 1),
 (3, '22/03/15', 'Vous savez où trouver un terrain ?', '20:00', 1, 'Volley entre amis', 1, 3),
 (4, '23/03/15', 'Quelqu\'un a des chaussures ?', '17:30', 1, 'Football', 3, 2);
 
