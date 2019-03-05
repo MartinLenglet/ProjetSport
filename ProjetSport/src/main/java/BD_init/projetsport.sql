@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS `evenement` (
   `titre` varchar(255) DEFAULT NULL,
   `createur_id` bigint(20) DEFAULT NULL,
   `sport_id` bigint(20) DEFAULT NULL,
+  `nbrmax` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKahtvcfxc7y6o305dtj3mtq05m` (`createur_id`),
   KEY `FKgidp1g7gor3ee1tsr63rmvppt` (`sport_id`)
