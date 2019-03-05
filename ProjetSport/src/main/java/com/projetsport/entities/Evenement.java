@@ -32,6 +32,7 @@ public class Evenement implements Serializable{
 	@ManyToOne
 	private User createur;
 	private int nbrParticipants;
+	private int nbrmax;
 	
 	public Evenement() {
 		
@@ -47,6 +48,19 @@ public class Evenement implements Serializable{
 		this.sport = sport;
 		this.createur = createur;
 		this.nbrParticipants = nbrParticipants;
+	}
+	
+	public Evenement(String titre, String description, String dateEvent, String horaire, Sport sport,
+			User createur, int nbrParticipants, int nbrmax) {
+		super();
+		this.titre = titre;
+		this.description = description;
+		this.dateEvent = dateEvent;
+		this.horaire = horaire;
+		this.sport = sport;
+		this.createur = createur;
+		this.nbrParticipants = nbrParticipants;
+		this.nbrmax = nbrmax;
 	}
 
 	public Evenement(String titre, String description, String dateEvent, String horaire) {
