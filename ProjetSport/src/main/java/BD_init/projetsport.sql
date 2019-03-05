@@ -40,7 +40,6 @@ CREATE TABLE IF NOT EXISTS `evenement` (
   `titre` varchar(255) DEFAULT NULL,
   `createur_id` bigint(20) DEFAULT NULL,
   `sport_id` bigint(20) DEFAULT NULL,
-  `nbrmax` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKahtvcfxc7y6o305dtj3mtq05m` (`createur_id`),
   KEY `FKgidp1g7gor3ee1tsr63rmvppt` (`sport_id`)
@@ -50,19 +49,11 @@ CREATE TABLE IF NOT EXISTS `evenement` (
 -- Déchargement des données de la table `evenement`
 --
 
-<<<<<<< HEAD
-INSERT INTO `evenement` (`id`, `date_event`, `description`, `horaire`, `nbr_participants`, `titre`, `createur_id`, `sport_id`) VALUES
-(1, '19/03/15', 'Petit tennis tranquillou après le taf', '17:30', 1, 'Tennis Simple niveau débutant', 2, 1),
-(2, '25/03/15', 'Seulement pour les pros', '18:30', 2, 'Tennis Double expert', 3, 1),
-(3, '22/03/15', 'Vous savez où trouver un terrain ?', '20:00', 1, 'Volley entre amis', 1, 3),
-(4, '23/03/15', 'Quelqu\'un a des chaussures ?', '17:30', 1, 'Football', 3, 2);
-=======
 INSERT INTO `evenement` (`id`, `date_event`, `description`, `horaire`, `nbr_participants`, `titre`, `createur_id`, `sport_id`, `nbrmax`) VALUES
 (1, '19/03/15', 'Petit tennis tranquillou après le taf', '17:30', 1, 'Tennis Simple niveau débutant', 2, 1, 4),
 (2, '25/03/15', 'Seulement pour les pros', '18:30', 2, 'Tennis Double expert', 3, 1, 2),
 (3, '22/03/15', 'Vous savez où trouver un terrain ?', '20:00', 1, 'Volley entre amis', 1, 3, 8),
 (4, '23/03/15', 'Quelqu\'un a des chaussures ?', '17:30', 1, 'Football', 3, 2, 22);
->>>>>>> branch 'master' of https://github.com/MartinLenglet/ProjetSport.git
 
 -- --------------------------------------------------------
 
