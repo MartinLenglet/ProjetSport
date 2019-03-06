@@ -88,5 +88,16 @@ public class ParticipationRestService {
 		}
 		return compteur;
 	}
+	
+	@RequestMapping(value="/supprparticipations/event/{id}", method=RequestMethod.DELETE)
+	public boolean deleteParticipationsEvent(@PathVariable Long id) {
+		List<Participation> allParticipation = participationRepos.findAll();
+		for (Participation participation : allParticipation) {
+			if(participation.getEvent().getId()==id) {
+				participationRepos.delete(participation.getId());
+			}
+		}
+		return true;
+	}
 
 }
