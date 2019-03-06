@@ -33,7 +33,7 @@ USE `projetsport`;
 DROP TABLE IF EXISTS `evenement`;
 CREATE TABLE IF NOT EXISTS `evenement` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `date_event` varchar(255) DEFAULT NULL,
+  `date_event` date DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `horaire` varchar(255) DEFAULT NULL,
   `nbr_participants` int(11) NOT NULL,
@@ -52,11 +52,11 @@ CREATE TABLE IF NOT EXISTS `evenement` (
 
 
 INSERT INTO `evenement` (`id`, `date_event`, `description`, `horaire`, `nbr_participants`, `titre`, `createur_id`, `sport_id`, `nbrmax`) VALUES
-(1, '19/03/15', 'Petit tennis tranquillou après le taf', '17:30', 1, 'Tennis Simple niveau débutant', 2, 1,2),
-(2, '25/03/15', 'Seulement pour les pros', '18:30', 2, 'Tennis Double expert', 3, 1, 4),
-(3, '22/03/15', 'Vous savez où trouver un terrain ?', '20:00', 1, 'Volley entre amis', 1, 3, 8),
-(4, '23/03/15', 'Quelqu\'un a des chaussures ?', '17:30', 2, 'Football', 3, 2, 22),
-(5, '24/03/15', 'Barack tu viens obligé', '18:30', 3, 'NBA street', 3, 4, 10);
+(1, '2019-04-15', 'Petit tennis tranquillou après le taf', '17:30', 1, 'Tennis Simple niveau débutant', 2, 1,2),
+(2, '2019-05-01', 'Seulement pour les pros', '18:30', 2, 'Tennis Double expert', 3, 1, 4),
+(3, '2019-05-26', 'Vous savez où trouver un terrain ?', '20:00', 1, 'Volley entre amis', 1, 3, 8),
+(4, '2019-05-29', 'Quelqu\'un a des chaussures ?', '17:30', 2, 'Football', 3, 2, 22),
+(5, '2019-03-01', 'Barack tu viens obligé', '18:30', 3, 'NBA street', 3, 4, 10);
 
 
 
