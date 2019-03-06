@@ -106,6 +106,16 @@ END
 $$
 DELIMITER ;
 
+DROP TRIGGER IF EXISTS `decNbPart`;
+DELIMITER $$
+CREATE TRIGGER `decNbPart` AFTER DELETE ON `participation` FOR EACH ROW BEGIN
+    UPDATE evenement 
+    SET nbr_participants = nbr_participants - 1 
+    WHERE id =  OLD.event_id ;
+END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
