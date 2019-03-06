@@ -56,6 +56,16 @@ INSERT INTO `evenement` (`id`, `date_event`, `description`, `horaire`, `nbr_part
 (3, '22/03/15', 'Vous savez où trouver un terrain ?', '20:00', 1, 'Volley entre amis', 1, 3, 8),
 (4, '23/03/15', 'Quelqu\'un a des chaussures ?', '17:30', 1, 'Football', 3, 2, 22);
 
+
+DROP TRIGGER IF EXISTS participmax;
+DELIMITER $$
+CREATE TRIGGER participmax BEFORE INSERT ON evenement FOR EACH ROW BEGIN
+ IF NEW.nbrmax = 0 THEN
+    SET NEW.nbrmax = 
+    	(SELECT nbr_max FROM sport WHERE sport.id = NEW.sport_id) ;
+ END IF ;
+END $$
+DELIMITER ;
 -- --------------------------------------------------------
 
 --
