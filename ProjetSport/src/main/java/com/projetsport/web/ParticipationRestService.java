@@ -99,5 +99,17 @@ public class ParticipationRestService {
 		}
 		return true;
 	}
+	
+	@RequestMapping(value="/participation/user/{id1}/event/{id2}", method=RequestMethod.GET)
+	public Participation getParticipationByUserAndEvent(@PathVariable Long id1, @PathVariable Long id2){
+		List<Participation> allParticipation = participationRepos.findAll();
+		Participation participationFound = new Participation();
+		for (Participation participation : allParticipation) {
+			if( (participation.getEvent().getId()==id2) && (participation.getParticipant().getId()==id1) ) {
+				participationFound = participation;
+			}
+		}
+		return participationFound;
+	}
 
 }
