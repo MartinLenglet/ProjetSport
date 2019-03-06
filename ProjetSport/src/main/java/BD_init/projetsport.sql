@@ -40,7 +40,6 @@ CREATE TABLE IF NOT EXISTS `evenement` (
   `titre` varchar(255) DEFAULT NULL,
   `createur_id` bigint(20) DEFAULT NULL,
   `sport_id` bigint(20) DEFAULT NULL,
-  `nbrmax` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKahtvcfxc7y6o305dtj3mtq05m` (`createur_id`),
   KEY `FKgidp1g7gor3ee1tsr63rmvppt` (`sport_id`)
@@ -50,11 +49,12 @@ CREATE TABLE IF NOT EXISTS `evenement` (
 -- Déchargement des données de la table `evenement`
 --
 
-INSERT INTO `evenement` (`id`, `date_event`, `description`, `horaire`, `nbr_participants`, `titre`, `createur_id`, `sport_id`, `nbrmax`) VALUES
-(1, '19/03/15', 'Petit tennis tranquillou après le taf', '17:30', 1, 'Tennis Simple niveau débutant', 2, 1, 4),
-(2, '25/03/15', 'Seulement pour les pros', '18:30', 2, 'Tennis Double expert', 3, 1, 2),
-(3, '22/03/15', 'Vous savez où trouver un terrain ?', '20:00', 1, 'Volley entre amis', 1, 3, 8),
-(4, '23/03/15', 'Quelqu\'un a des chaussures ?', '17:30', 1, 'Football', 3, 2, 22);
+INSERT INTO `evenement` (`id`, `date_event`, `description`, `horaire`, `nbr_participants`, `titre`, `createur_id`, `sport_id`) VALUES
+(1, '19/03/15', 'Petit tennis tranquillou après le taf', '17:30', 2, 'Tennis Simple niveau débutant', 2, 1),
+(2, '25/03/15', 'Seulement pour les pros', '18:30', 1, 'Tennis Double expert', 3, 1),
+(3, '22/03/15', 'Vous savez où trouver un terrain ?', '20:00', 1, 'Volley entre amis', 1, 3),
+(4, '23/03/15', 'Quelqu\'un a des chaussures ?', '17:30', 3, 'Football', 3, 2),
+(5, '24/03/15', 'Barack tu viens obligé', '18:30', 3, 'NBA street', 3, 4);
 
 -- --------------------------------------------------------
 
@@ -81,8 +81,11 @@ INSERT INTO `participation` (`id`, `event_id`, `participant_id`) VALUES
 (2, 2, 1),
 (3, 2, 2),
 (4, 3, 3),
-(5, 4, 2);
-
+(5, 4, 8),
+(6, 5, 6),
+(7, 5, 9),
+(8, 5, 2),
+(9, 4, 2);
 --
 -- Déclencheurs `participation`
 --
@@ -119,7 +122,11 @@ CREATE TABLE IF NOT EXISTS `sport` (
 INSERT INTO `sport` (`id`, `lien`, `nbr_max`, `nbr_min`, `nom`) VALUES
 (1, '../assets/tennis-event.jpg', 4, 2, 'Tennis'),
 (2, '../assets/foot-event.jpg', 22, 5, 'Football'),
-(3, '../assets/volley-event.jpg', 8, 6, 'VolleyBall');
+(3, '../assets/volley-event.jpg', 8, 6, 'Volley-Ball'),
+(4, '../assets/basket-event.jpg', 12, 6, 'Basketball'),
+(5, '../assets/badminton-event.jpg', 4, 2, 'Badminton'),
+(6, '../assets/course-event.jpg', 50, 2, 'Course à pied');
+
 
 -- --------------------------------------------------------
 
@@ -145,7 +152,20 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`id`, `mail`, `mdp`, `nom`, `prenom`, `pseudo`) VALUES
 (1, 'martin.lenglet@hotmail.fr', 'martin', 'Lenglet', 'Martin', 'TinMar du 62'),
 (2, 'pierre.falck@hotmail.fr', 'pierre', 'Falck', 'Pierre', 'PedroElFalko'),
-(3, 'hugo.carlevaris@hotmail.fr', 'hugo', 'Carlevaris', 'Hugo', 'Hugoleboss');
+(3, 'hugo.carlevaris@hotmail.fr', 'hugo', 'Carlevaris', 'Hugo', 'Hugoleboss'),
+(4, 'sara.croche@hotmail.fr', 'sara', 'Croche', 'Sara', 'Saracroche'),
+(5, 'joel.banka@hotmail.fr', 'joel', 'Banka', 'Joel', 'Jojo92'),
+(6, 'blanche.neige@hotmail.fr', 'blanche', 'Neige', 'Blanche', 'Blancheneige'),
+(7, 'jeremy.star@hotmail.fr', 'jeremy', 'Star', 'Jeremy', 'Jeremstar'),
+(8, 'david.douillet@hotmail.fr', 'david', 'Douillet', 'David', 'DavidD'),
+(9, 'wilfrid@hotmail.fr', 'wilfrid', 'Dupond', 'Wilfrid', 'Wil'),
+(10, 'barack.obama@hotmail.fr', 'barack', 'Obama', 'Barack', 'Baracko');
+
+
+
+
+
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
