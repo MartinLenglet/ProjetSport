@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS `evenement` (
   `titre` varchar(255) DEFAULT NULL,
   `createur_id` bigint(20) DEFAULT NULL,
   `sport_id` bigint(20) DEFAULT NULL,
+  `nbrmax` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKahtvcfxc7y6o305dtj3mtq05m` (`createur_id`),
   KEY `FKgidp1g7gor3ee1tsr63rmvppt` (`sport_id`)
@@ -49,6 +50,7 @@ CREATE TABLE IF NOT EXISTS `evenement` (
 -- Déchargement des données de la table `evenement`
 --
 
+
 INSERT INTO `evenement` (`id`, `date_event`, `description`, `horaire`, `nbr_participants`, `titre`, `createur_id`, `sport_id`) VALUES
 (1, '19/03/15', 'Petit tennis tranquillou après le taf', '17:30', 2, 'Tennis Simple niveau débutant', 2, 1),
 (2, '25/03/15', 'Seulement pour les pros', '18:30', 1, 'Tennis Double expert', 3, 1),
@@ -56,6 +58,17 @@ INSERT INTO `evenement` (`id`, `date_event`, `description`, `horaire`, `nbr_part
 (4, '23/03/15', 'Quelqu\'un a des chaussures ?', '17:30', 3, 'Football', 3, 2),
 (5, '24/03/15', 'Barack tu viens obligé', '18:30', 3, 'NBA street', 3, 4);
 
+
+
+DROP TRIGGER IF EXISTS participmax;
+DELIMITER $$
+CREATE TRIGGER participmax BEFORE INSERT ON evenement FOR EACH ROW BEGIN
+ IF NEW.nbrmax = 0 THEN
+    SET NEW.nbrmax = 
+    	(SELECT nbr_max FROM sport WHERE sport.id = NEW.sport_id) ;
+ END IF ;
+END $$
+DELIMITER ;
 -- --------------------------------------------------------
 
 --
