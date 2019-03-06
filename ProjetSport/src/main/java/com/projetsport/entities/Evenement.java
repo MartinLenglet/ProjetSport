@@ -71,6 +71,15 @@ public class Evenement implements Serializable{
 		this.horaire = horaire;
 	}
 	
+	
+	public int getNbrmax() {
+		return nbrmax;
+	}
+
+	public void setNbrmax(int nbrmax) {
+		this.nbrmax = nbrmax;
+	}
+
 	public int getNbrParticipants() {
 		return nbrParticipants;
 	}
