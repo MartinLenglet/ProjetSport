@@ -145,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `sport` (
 INSERT INTO `sport` (`id`, `lien`, `nbr_max`, `nbr_min`, `nom`) VALUES
 (1, '../assets/tennis-event.jpg', 4, 2, 'Tennis'),
 (2, '../assets/foot-event.jpg', 22, 5, 'Football'),
-(3, '../assets/volley-event.jpg', 8, 6, 'Volley-Ball'),
+(3, '../assets/volley-event.jpg', 8, 6, 'Volley'),
 (4, '../assets/basket-event.jpg', 12, 6, 'Basketball'),
 (5, '../assets/badminton-event.jpg', 4, 2, 'Badminton'),
 (6, '../assets/course-event.jpg', 50, 2, 'Course à pied');
