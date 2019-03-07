@@ -32,8 +32,8 @@ public class MailRestService {
 	//private MailRepository mailRepos;
 	
 	private void sendMail(String destinataire, String objet, String contenu) {
-		final String expediteur = "usertest.projetsport@gmail.com";
-		final String password = "projetsport_2019";
+		final String expediteur = "staff.sport2go@gmail.com";
+		final String password = "sport2go_2019";
 		
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -72,11 +72,11 @@ public class MailRestService {
 		String objet = "Création d'un événement sportif";
 		String Newligne=System.getProperty("line.separator");
 		String contenu = "Bonjour " + e.getCreateur().getPrenom() + " " + e.getCreateur().getNom() + "," 
-		+ Newligne + Newligne + "Vous venez de créer un événement de " + e.getSport().getNom() + " le " + e.getDateEvent() + " à " + e.getHoraire() + ". "
-		+ Newligne + "AppSport vous souhaite de trouver des partenaires au plus vite. "  
-		+ Newligne + "Vous pouvez consulter tous vos prochains événements sur : http://localhost:4200/afficheevent. "
-		+ Newligne + Newligne + "A bientôt sur AppSport !" 
-		+ Newligne + "Equipe AppSport";
+		+ Newligne + Newligne + "Tu viens de créer un événement de " + e.getSport().getNom() + " le " + e.getDateEvent() + " à " + e.getHoraire() + ". "
+		+ Newligne + "Sport2Go te souhaite de trouver des partenaires au plus vite. "  
+		+ Newligne + "Tu peux consulter tous tes prochains événements sur : http://localhost:4200/. "
+		+ Newligne + Newligne + "A bientôt sur Sport2Go !" 
+		+ Newligne + "L'équipe Sport2Go";
 		
 		Mail mail = new Mail(objet, contenu, destinataire);
 		
@@ -92,11 +92,11 @@ public class MailRestService {
 		for (User user : participants) {
 			String destinataire = user.getMail();
 			String contenu = "Bonjour " + user.getPrenom() + " " + user.getNom() + "," 
-			+ Newligne + Newligne + "Un événement auquel vous vous êtes inscrit(e) est complet et aura donc bien lieu. "
-			+ Newligne + "Nous vous invitons à prendre contact avec le créateur de l'événement pour fixer le lieu de la rencontre. " 
-			+ Newligne + "Vous pouvez consulter tous vos prochains événements sur : http://localhost:4200/afficheevent. " 
-			+ Newligne + Newligne + "A bientôt sur AppSport !" 
-			+ Newligne + "Equipe AppSport";
+			+ Newligne + Newligne + "Un événement auquel tu t'es inscrit(e) est complet et aura donc bien lieu. "
+			+ Newligne + "Tu peux maintenant prendre contact avec le créateur de l'événement pour fixer le lieu de la rencontre. " 
+			+ Newligne + "Tu peux consulter tous tes prochains événements sur : http://localhost:4200/. " 
+			+ Newligne + Newligne + "A bientôt sur Sport2Go !" 
+			+ Newligne + "L'équipe Sport2Go";
 			
 			sendMail(destinataire, objet, contenu);
 		}
@@ -108,11 +108,30 @@ public class MailRestService {
 		String objet = "Validation d'un événement que vous avez créé";
 		String Newligne=System.getProperty("line.separator");
 		String contenu = "Bonjour " + e.getCreateur().getPrenom() + " " + e.getCreateur().getNom() + "," 
-		+ Newligne + Newligne + "Votre événement de " + e.getSport().getNom() + " du " + e.getDateEvent() + " à " + e.getHoraire() + " est complet. "
-		+ Newligne + "Félicitations ! Vous pouvez maintenant contacter les participants pour fixer le lieu de la rencontre. "  
-		+ Newligne + "Vous pouvez consulter tous vos prochains événements sur : http://localhost:4200/afficheevent. "
-		+ Newligne + Newligne + "A bientôt sur AppSport !" 
-		+ Newligne + "Equipe AppSport";
+		+ Newligne + Newligne + "Ton événement de " + e.getSport().getNom() + " du " + e.getDateEvent() + " à " + e.getHoraire() + " est complet. "
+		+ Newligne + "Félicitations ! Tu peux maintenant contacter les participants pour fixer le lieu de la rencontre. "  
+		+ Newligne + "Tu peux consulter tous tes prochains événements sur : http://localhost:4200/. "
+		+ Newligne + Newligne + "A bientôt sur Sport2Go !" 
+		+ Newligne + "L'équipe Sport2Go";
+		
+		Mail mail = new Mail(objet, contenu, destinataire);
+		
+		sendMail(destinataire, objet, contenu);
+		
+		return mail;
+	}
+	
+	@RequestMapping(value="/mailcreationcompte", method=RequestMethod.POST)
+	public Mail mailCreationCompte(@RequestBody User u){
+		String destinataire = u.getMail();
+		String objet = "Confirmation de création de compte";
+		String Newligne=System.getProperty("line.separator");
+		String contenu = "Bonjour " + u.getPrenom() + " " + u.getNom() + "," 
+		+ Newligne + Newligne + "Bienvenue sur Sport2Go, l'application qui va révolutionner ton quotidien ! "
+		+ Newligne + "Tu peux dès maintenant participer à tous les événements proposés par les autres utilisateurs. "  
+		+ Newligne + "Tu ne trouves pas ton bonheur ? Aucun problème, tu peux créer tes propres événements et attendre que d'autres utilisateurs te rejoignent. "
+		+ Newligne + Newligne + "A bientôt sur http://localhost:4200/!" 
+		+ Newligne + "L'équipe Sport2Go";
 		
 		Mail mail = new Mail(objet, contenu, destinataire);
 		
