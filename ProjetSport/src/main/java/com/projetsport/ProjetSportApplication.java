@@ -127,7 +127,7 @@ public class ProjetSportApplication implements CommandLineRunner{
 		
 		// **************** Fin de l'initialisation ******************************
 		
-		userRepos.findAll().forEach(a -> {
+		/*userRepos.findAll().forEach(a -> {
 			System.out.println(a.infoUser());
 		});
 		
@@ -139,9 +139,9 @@ public class ProjetSportApplication implements CommandLineRunner{
 			System.out.println(a.infoEvenement());
 		});
 		
-		/*participationRepos.findAll().forEach(a -> {
+		participationRepos.findAll().forEach(a -> {
 			System.out.println(a.infoParticipation());
-		});*/
+		});
 		
 		eventRepos.getOldEvents().forEach(a ->{
 			System.out.println(a.infoEvenement());
@@ -149,7 +149,9 @@ public class ProjetSportApplication implements CommandLineRunner{
 		
 		eventRepos.getNewEvents().forEach(a ->{
 			System.out.println(a.infoEvenement());
-		});
+		});*/
+		
+		System.out.println("Le projet est bien lancé");
 	}
 
 }

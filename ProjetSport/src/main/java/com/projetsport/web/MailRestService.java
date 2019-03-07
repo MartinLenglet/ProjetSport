@@ -58,7 +58,7 @@ public class MailRestService {
 
 			Transport.send(message);
 
-			System.out.println("Done");
+			System.out.println("Mail envoyé");
 
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
