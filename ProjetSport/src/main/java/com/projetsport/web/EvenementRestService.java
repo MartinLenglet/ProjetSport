@@ -30,7 +30,9 @@ public class EvenementRestService {
 	
 	@RequestMapping(value="/event", method=RequestMethod.GET)
 	public List<Evenement> getEvent(){
-		return eventRepos.findAll();
+		List<Evenement> allEvents = eventRepos.findAll();
+		Collections.sort(allEvents, new SortByDate());
+		return allEvents;
 	}
 	
 	@RequestMapping(value="/eventordered", method=RequestMethod.GET)
