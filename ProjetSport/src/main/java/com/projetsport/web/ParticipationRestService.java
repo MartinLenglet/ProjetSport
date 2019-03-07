@@ -60,7 +60,7 @@ public class ParticipationRestService {
 	public List<Evenement> getMyParticipation(@PathVariable Long id){
 		List<Participation> allParticipation = participationRepos.findAll();
 		List<Participation> allMyParticipation = new ArrayList<Participation>();
-		List<Evenement> allEvent = eventRepos.findAll();
+		List<Evenement> allEvent = eventRepos.getNewEvents();
 		List<Evenement> allMyEvent = new ArrayList<Evenement>();
 		
 		for (Participation participation : allParticipation) {

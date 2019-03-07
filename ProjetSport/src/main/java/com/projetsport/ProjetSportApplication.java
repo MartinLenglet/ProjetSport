@@ -142,6 +142,14 @@ public class ProjetSportApplication implements CommandLineRunner{
 		/*participationRepos.findAll().forEach(a -> {
 			System.out.println(a.infoParticipation());
 		});*/
+		
+		eventRepos.getOldEvents().forEach(a ->{
+			System.out.println(a.infoEvenement());
+		});
+		
+		eventRepos.getNewEvents().forEach(a ->{
+			System.out.println(a.infoEvenement());
+		});
 	}
 
 }

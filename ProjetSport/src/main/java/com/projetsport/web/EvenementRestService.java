@@ -30,7 +30,14 @@ public class EvenementRestService {
 	
 	@RequestMapping(value="/event", method=RequestMethod.GET)
 	public List<Evenement> getEvent(){
-		List<Evenement> allEvents = eventRepos.findAll();
+		List<Evenement> allEvents = eventRepos.getNewEvents();
+		Collections.sort(allEvents, new SortByDate());
+		return allEvents;
+	}
+	
+	@RequestMapping(value="/oldevent", method=RequestMethod.GET)
+	public List<Evenement> getOldEvent(){
+		List<Evenement> allEvents = eventRepos.getOldEvents();
 		Collections.sort(allEvents, new SortByDate());
 		return allEvents;
 	}
@@ -77,7 +84,7 @@ public class EvenementRestService {
 
 	@RequestMapping(value="/meseventcree/{id}", method=RequestMethod.GET)
 	public List<Evenement> getMesEventCreeById(@PathVariable Long id){
-		List<Evenement> allEvent = eventRepos.findAll();
+		List<Evenement> allEvent = eventRepos.getNewEvents();
 		List<Evenement> mesEvents = new ArrayList<Evenement>();
 		
 		for (Evenement evenement : allEvent) {
