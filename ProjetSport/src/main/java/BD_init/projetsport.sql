@@ -173,11 +173,11 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `mail`, `mdp`, `nom`, `prenom`, `pseudo`) VALUES
-(1, 'martin.lenglet@hotmail.fr', 'martin', 'Lenglet', 'Martin', 'TinMar du 62'),
-(2, 'pierre.falck@hotmail.fr', 'pierre', 'Falck', 'Pierre', 'PedroElFalko'),
-(3, 'hugo.carlevaris@hotmail.fr', 'hugo', 'Carlevaris', 'Hugo', 'Hugoleboss'),
+(1, 'martinlenglet@gmail.com', 'martin', 'Lenglet', 'Martin', 'TinMar du 62'),
+(2, 'pierre.falck@hotmail.com', 'pierre', 'Falck', 'Pierre', 'PedroElFalko'),
+(3, 'hugocarlevaris@gmail.com', 'hugo', 'Carlevaris', 'Hugo', 'Hugoleboss'),
 (4, 'sara.croche@hotmail.fr', 'sara', 'Croche', 'Sara', 'Saracroche'),
-(5, 'joel.banka@hotmail.fr', 'joel', 'Banka', 'Joel', 'Jojo92'),
+(5, 'bankajoel@gmail.com', 'joel', 'Banka', 'Joel', 'Jojo92'),
 (6, 'blanche.neige@hotmail.fr', 'blanche', 'Neige', 'Blanche', 'Blancheneige'),
 (7, 'jeremy.star@hotmail.fr', 'jeremy', 'Star', 'Jeremy', 'Jeremstar'),
 (8, 'david.douillet@hotmail.fr', 'david', 'Douillet', 'David', 'DavidD'),
