@@ -52,12 +52,15 @@ CREATE TABLE IF NOT EXISTS `evenement` (
 
 
 INSERT INTO `evenement` (`id`, `date_event`, `description`, `horaire`, `nbr_participants`, `titre`, `createur_id`, `sport_id`, `nbrmax`) VALUES
-(1, '2019-04-15', 'Petit tennis tranquillou après le taf', '17:30', 1, 'Tennis Simple niveau débutant', 2, 1,2),
+(1, '2019-04-15', 'Petit tennis tranquillou après le taf', '17:30', 1, 'Tennis Simple débutant', 2, 1, 2),
 (2, '2019-05-01', 'Seulement pour les pros', '18:30', 2, 'Tennis Double expert', 3, 1, 4),
-(3, '2019-05-26', 'Vous savez où trouver un terrain ?', '20:00', 1, 'Volley entre amis', 1, 3, 8),
-(4, '2019-05-29', 'Quelqu\'un a des chaussures ?', '17:30', 2, 'Football', 3, 2, 22),
-(5, '2019-03-01', 'Barack tu viens obligé', '18:30', 3, 'NBA street', 3, 4, 10);
-
+(3, '2019-01-01', 'Le combat des dieux', '18:30', 1, 'Federer vs Nadal', 2, 1, 2),
+(4, '2019-05-26', 'Vous savez où trouver un terrain de volley ?', '20:00', 1, 'Volley entre amis', 1, 3, 8),
+(5, '2019-05-29', 'Quelqu\'un a des chaussures à crampon pour moi ?', '17:30', 3, 'Football', 4, 2, 22),
+(6, '2019-03-01', 'Barack tu viens obligé', '18:30', 3, 'NBA street', 6, 4, 10),
+(7, '2019-04-18', 'Duel en finale de conférence. Qui de Lebron ou Curry va prendre le dessus ?', '18:30', 3, 'Golden State vs Cleveland', 1, 4, 14),
+(8, '2019-06-01', 'Qui est chaud pour un petit Bad la semaine pro ?', '16:00', 0, 'BadminYourFace', 6, 5, 2),
+(9, '2019-06-01', 'On ressort ses chaussures du placard  et petit footing le long du canal St-Martin', '16:00', 5, 'Le footing des Solutec', 10, 6, 30);
 
 
 DROP TRIGGER IF EXISTS participmax;
@@ -91,14 +94,26 @@ CREATE TABLE IF NOT EXISTS `participation` (
 
 INSERT INTO `participation` (`id`, `event_id`, `participant_id`) VALUES
 (1, 1, 1),
-(2, 2, 1),
-(3, 2, 2),
-(4, 3, 3),
-(5, 4, 8),
-(6, 5, 6),
-(7, 5, 9),
-(8, 5, 2),
-(9, 4, 2);
+(2, 2, 9),
+(3, 2, 10),
+(4, 3, 8),
+(5, 4, 2),
+(6, 5, 5),
+(7, 5, 7),
+(8, 5, 3),
+(9, 6, 7),
+(10, 6, 8),
+(11, 6, 10),
+(12, 7, 2),
+(13, 7, 7),
+(14, 7, 9),
+(15, 9, 1),
+(16, 9, 2),
+(17, 9, 3),
+(18, 9, 4),
+(19, 9, 5);
+
+
 --
 -- Déclencheurs `participation`
 --
@@ -145,8 +160,8 @@ CREATE TABLE IF NOT EXISTS `sport` (
 INSERT INTO `sport` (`id`, `lien`, `nbr_max`, `nbr_min`, `nom`) VALUES
 (1, '../assets/tennis-event.jpg', 4, 2, 'Tennis'),
 (2, '../assets/foot-event.jpg', 22, 5, 'Football'),
-(3, '../assets/volley-event.jpg', 8, 6, 'Volley'),
-(4, '../assets/basket-event.jpg', 12, 6, 'Basketball'),
+(3, '../assets/volley-event.jpg', 12, 4, 'Volley'),
+(4, '../assets/basket-event.jpg', 12, 2, 'Basketball'),
 (5, '../assets/badminton-event.jpg', 4, 2, 'Badminton'),
 (6, '../assets/course-event.jpg', 50, 2, 'Course à pied');
 
@@ -174,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `mail`, `mdp`, `nom`, `prenom`, `pseudo`) VALUES
 (1, 'martinlenglet@gmail.com', 'martin', 'Lenglet', 'Martin', 'TinMar du 62'),
-(2, 'pierre.falck@hotmail.com', 'pierre', 'Falck', 'Pierre', 'PedroElFalko'),
+(2, 'pierre.falck@hotmail.fr', 'pierre', 'Falck', 'Pierre', 'PedroElFalko'),
 (3, 'hugocarlevaris@gmail.com', 'hugo', 'Carlevaris', 'Hugo', 'Hugoleboss'),
 (4, 'sara.croche@hotmail.fr', 'sara', 'Croche', 'Sara', 'Saracroche'),
 (5, 'bankajoel@gmail.com', 'joel', 'Banka', 'Joel', 'Jojo92'),
@@ -183,10 +198,6 @@ INSERT INTO `user` (`id`, `mail`, `mdp`, `nom`, `prenom`, `pseudo`) VALUES
 (8, 'david.douillet@hotmail.fr', 'david', 'Douillet', 'David', 'DavidD'),
 (9, 'wilfrid@hotmail.fr', 'wilfrid', 'Dupond', 'Wilfrid', 'Wil'),
 (10, 'barack.obama@hotmail.fr', 'barack', 'Obama', 'Barack', 'Baracko');
-
-
-
-
 
 
 COMMIT;
