@@ -1,6 +1,7 @@
 package com.projetsport.web;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.projetsport.controller.SortByDate;
 import com.projetsport.dao.EvenementRepository;
 import com.projetsport.dao.ParticipationRepository;
 import com.projetsport.entities.Evenement;
@@ -74,6 +76,7 @@ public class ParticipationRestService {
 				}
 			}
 		}
+		Collections.sort(allMyEvent, new SortByDate());
 		return allMyEvent;
 	}
 	

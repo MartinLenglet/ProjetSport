@@ -1,6 +1,7 @@
 package com.projetsport.web;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.projetsport.controller.SortByDate;
 import com.projetsport.dao.EvenementRepository;
 import com.projetsport.dao.ParticipationRepository;
 import com.projetsport.entities.Evenement;
@@ -29,6 +31,24 @@ public class EvenementRestService {
 	@RequestMapping(value="/event", method=RequestMethod.GET)
 	public List<Evenement> getEvent(){
 		return eventRepos.findAll();
+	}
+	
+	@RequestMapping(value="/eventordered", method=RequestMethod.GET)
+	public List<Evenement> getEventOrdered(){
+		List<Evenement> allEvents = eventRepos.findAll();
+		List<Evenement> allEventsOrdered = allEvents;
+		Collections.sort(allEventsOrdered, new SortByDate());
+		
+		return allEventsOrdered;
+	}
+	
+	@RequestMapping(value="/eventdate/{id}", method=RequestMethod.GET)
+	public int getEventDate(@PathVariable Long id){
+		Evenement e = eventRepos.findOne(id);
+		String date = e.getDateEvent();
+		String dateReordered = date.substring(0, 2) + date.substring(3, 5) + date.substring(6);
+		int dateI = Integer.parseInt(dateReordered);
+		return dateI;
 	}
 	
 	@RequestMapping(value="/event/{id}", method=RequestMethod.GET)
@@ -63,6 +83,7 @@ public class EvenementRestService {
 				mesEvents.add(evenement);
 			}
 		}
+		Collections.sort(mesEvents, new SortByDate());
 		return mesEvents;
 	}
 	 
